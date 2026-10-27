@@ -6,30 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Hub Portal</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Poster thumbnails for the Upcoming Events section
+           (same small style already used on events.html) */
+        .poster-thumb {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
 
+    <!-- =============================================
+         NOTIFICATION BANNER
+         Appears at the very top of the page.
+         The X button (banner-close-btn) dismisses it.
+         ============================================= -->
+    <div class="notification-banner" id="notification-banner">
+        <p>&#128276; Upcoming: Hackathon on 15 October 2026 at Innovation Lab. Register now!</p>
+        <button class="banner-close-btn" id="banner-close-btn" aria-label="Close notification">&#10005;</button>
+    </div>
+
     <header>
-        <div class="logo-container">
-            <img src="logo.jpg" alt="College Logo">
-            <h1>Student Hub Portal</h1>
+        <!-- header-top: title on left, theme button on right -->
+        <div class="header-top">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="College Logo">
+                <h1>Student Hub Portal</h1>
+            </div>
+
+            <!-- THEME TOGGLE BUTTON -->
+            <button class="theme-btn" id="theme-btn" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
         </div>
 
+        <!-- HAMBURGER BUTTON (visible only on mobile) -->
+        <button class="hamburger-btn"
+                id="hamburger-btn"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+            &#9776;
+        </button>
+
+        <!-- NAVIGATION LINKS -->
         <nav>
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a href="aboutpage.html">About</a>
             <a href="register.html">Register</a>
-            <a href="login.html">Login</a>
+            <a href="login.php">Login</a>
             <a href="contact.html">Contact</a>
-            <a href="FAQ.html">FAQ</a>
+            <a href="faq.html">FAQ</a>
         </nav>
     </header>
 
     <main>
 
-        <section class="home-content">
+        <!-- =============================================
+             CONTENT SLIDER
+             Three simple text slides about the portal.
+             Prev / Next buttons and dot indicators.
+             ============================================= -->
+        <section class="slider-section">
+            <div class="slider-container">
 
+                <div class="slide active">
+                    <h3>Welcome to Student Hub Portal</h3>
+                    <p>One place for all your academic information and student services.</p>
+                </div>
+
+                <div class="slide">
+                    <h3>Check Your Attendance</h3>
+                    <p>View subject-wise attendance and stay on top of your classes.</p>
+                </div>
+
+                <div class="slide">
+                    <h3>Stay Updated</h3>
+                    <p>Get the latest notices, events, and important announcements.</p>
+                </div>
+
+            </div>
+
+            <div class="slider-controls">
+                <button class="slider-btn" id="slider-prev" aria-label="Previous slide">&#8592; Prev</button>
+
+                <!-- Dot indicators — one per slide -->
+                <div class="slider-dots" aria-hidden="true">
+                    <button class="dot active" aria-label="Slide 1"></button>
+                    <button class="dot" aria-label="Slide 2"></button>
+                    <button class="dot" aria-label="Slide 3"></button>
+                </div>
+
+                <button class="slider-btn" id="slider-next" aria-label="Next slide">Next &#8594;</button>
+            </div>
+        </section>
+
+        <!-- =============================================
+             WELCOME BOX
+             The main home page content.
+             "Learn More" opens the modal popup.
+             ============================================= -->
+        <section class="home-content">
             <div class="home-box">
 
                 <h2>Welcome to Student Hub Portal</h2>
@@ -44,11 +124,29 @@
                 </p>
 
                 <a href="register.html" class="button">Register Now</a>
+                <a href="login.php" class="button">Login</a>
 
-                <a href="login.html" class="button">Login</a>
+                <!-- Opens the modal popup -->
+                <button class="button open-modal-btn">Learn More</button>
 
             </div>
+        </section>
 
+        <!-- =============================================
+             UPCOMING EVENTS
+             Loaded dynamically from events_data.php (MySQL).
+             ============================================= -->
+        <section>
+            <h2>Upcoming Events</h2>
+
+            <!-- components.js fills this container with event cards -->
+            <div class="info-container" id="home-events-list">
+                <p class="loading-msg">Loading events...</p>
+            </div>
+
+            <p>
+                <a href="events.html" class="button">View All Events</a>
+            </p>
         </section>
 
     </main>
@@ -56,6 +154,38 @@
     <footer>
         <p>&copy; 2026 Student Hub Portal. All Rights Reserved.</p>
     </footer>
+
+    <!-- =============================================
+         MODAL POPUP
+         Hidden by default. Opened by "Learn More" button.
+         Closed by X button, clicking outside, or Escape key.
+         ============================================= -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-box">
+
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="Close">&times;</button>
+
+            <h2 id="modal-title">About Student Hub Portal</h2>
+
+            <p>Student Hub Portal is a centralized web-based platform for students.</p>
+
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>View your student profile and academic information</li>
+                <li>Check subject-wise attendance</li>
+                <li>View semester results</li>
+                <li>Read notices and upcoming events</li>
+            </ul>
+
+            <p>Register or Login to get started.</p>
+
+            <a href="register.html" class="button">Register Now</a>
+            <a href="login.php" class="button">Login</a>
+
+        </div>
+    </div>
+
+    <script src="components.js"></script>
 
 </body>
 

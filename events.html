@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Student Hub Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Poster column added by the Event Management Module */
+        .poster-thumb {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            display: block;
+        }
+        .no-poster {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        /* Register button added by the Event Registration Module */
+        .reg-form {
+            display: inline;
+            margin: 0;
+        }
+        .reg-btn {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 4px;
+            background: #2e7d32;
+            color: #fff;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .reg-btn:hover {
+            background: #1b5e20;
+        }
+        .registered-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            color: #1b5e20;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .login-to-register {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            color: #0d47a1;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+        .login-to-register:hover {
+            background: #bbdefb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top">
+            <h1>Student Hub Portal</h1>
+            <button class="theme-btn" id="theme-btn" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
+        </div>
+
+        <button class="hamburger-btn"
+                id="hamburger-btn"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+            &#9776;
+        </button>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="aboutpage.html">About</a>
+            <a href="register.html">Register</a>
+            <a href="login.php">Login</a>
+            <a href="events.html">Events</a>
+            <a href="notice.html">Notices</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Upcoming Events</h2>
+            <p>Explore upcoming academic, technical and student activities.</p>
+
+            <!-- Message after registering (or after login) - filled by events.js -->
+            <div id="eventsFlash" class="success-msg" style="display: none;"></div>
+        </section>
+
+        <section>
+            <h3>Event List</h3>
+
+            <!-- Search, Filter, and Sort Controls -->
+            <div class="data-controls">
+                <input type="text" id="eventSearch" placeholder="Search by name, category, or location..." aria-label="Search events">
+
+                <select id="eventCategoryFilter" aria-label="Filter by category">
+                    <option value="">All Categories</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Competition">Competition</option>
+                    <option value="Academic">Academic</option>
+                    <option value="Seminar">Seminar</option>
+                    <option value="Cultural">Cultural</option>
+                    <option value="Technical">Technical</option>
+                </select>
+
+                <select id="eventSort" aria-label="Sort events">
+                    <option value="date-asc">Date: Earliest First</option>
+                    <option value="date-desc">Date: Latest First</option>
+                    <option value="name-asc">Name: A to Z</option>
+                    <option value="name-desc">Name: Z to A</option>
+                </select>
+            </div>
+
+            <!-- Loading & Error Status Messages -->
+            <div id="eventsLoading" class="loading-msg">Loading events data...</div>
+            <div id="eventsError" class="error-box" style="display: none;"></div>
+            <div id="eventsNoResults" class="no-results" style="display: none;">No matching events found.</div>
+
+            <!-- Responsive Table Wrapper -->
+            <div class="table-wrapper" id="eventsTableWrapper" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Event Name</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Poster</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsTableBody">
+                        <!-- Populated dynamically via events.js -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-container" id="eventsPagination" style="display: none;">
+                <button id="eventsPrevBtn" class="page-btn">Previous</button>
+                <span id="eventsPageInfo" class="page-info">Page 1 of 1</span>
+                <button id="eventsNextBtn" class="page-btn">Next</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Student Hub Portal. All Rights Reserved.</p>
+    </footer>
+
+    <script src="components.js"></script>
+    <!-- ?v=2 cache-bust: browsers that still hold an old cached events.js
+         fetch the fresh file again after any update -->
+    <script src="events.js?v=2"></script>
+
+</body>
+
+</html>

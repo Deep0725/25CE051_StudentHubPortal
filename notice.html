@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notices - Student Hub Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top">
+            <h1>Student Hub Portal</h1>
+            <button class="theme-btn" id="theme-btn" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
+        </div>
+
+        <button class="hamburger-btn"
+                id="hamburger-btn"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+            &#9776;
+        </button>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="aboutpage.html">About</a>
+            <a href="register.html">Register</a>
+            <a href="login.php">Login</a>
+            <a href="events.html">Events</a>
+            <a href="notice.html">Notices</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Student Notices</h2>
+            <p>Latest announcements and important academic information for students.</p>
+        </section>
+
+        <section>
+            <h3>Important Notices</h3>
+
+            <!-- Search, Filter, and Sort Controls -->
+            <div class="data-controls">
+                <input type="text" id="noticeSearch" placeholder="Search by title, category, or keyword..." aria-label="Search notices">
+
+                <select id="noticeCategoryFilter" aria-label="Filter by category">
+                    <option value="">All Categories</option>
+                    <option value="Academic">Academic</option>
+                    <option value="Examination">Examination</option>
+                    <option value="Student Activities">Student Activities</option>
+                    <option value="Library">Library</option>
+                    <option value="Administrative">Administrative</option>
+                </select>
+
+                <select id="noticeSort" aria-label="Sort notices">
+                    <option value="date-desc">Date: Latest First</option>
+                    <option value="date-asc">Date: Oldest First</option>
+                    <option value="title-asc">Title: A to Z</option>
+                    <option value="title-desc">Title: Z to A</option>
+                </select>
+            </div>
+
+            <!-- Loading & Error Status Messages -->
+            <div id="noticesLoading" class="loading-msg">Loading notices data...</div>
+            <div id="noticesError" class="error-box" style="display: none;"></div>
+            <div id="noticesNoResults" class="no-results" style="display: none;">No matching notices found.</div>
+
+            <!-- Responsive Table Wrapper -->
+            <div class="table-wrapper" id="noticesTableWrapper" style="display: none;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Notice Title</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="noticesTableBody">
+                        <!-- Populated dynamically via notices.js -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-container" id="noticesPagination" style="display: none;">
+                <button id="noticesPrevBtn" class="page-btn">Previous</button>
+                <span id="noticesPageInfo" class="page-info">Page 1 of 1</span>
+                <button id="noticesNextBtn" class="page-btn">Next</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Student Hub Portal. All Rights Reserved.</p>
+    </footer>
+
+    <script src="components.js"></script>
+    <script src="notices.js"></script>
+
+</body>
+
+</html>

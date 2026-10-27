@@ -11,15 +11,25 @@
 <body>
 
     <header>
-        <h1>Student Hub Portal</h1>
+        <div class="header-top">
+            <h1>Student Hub Portal</h1>
+            <button class="theme-btn" id="theme-btn" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
+        </div>
+
+        <button class="hamburger-btn"
+                id="hamburger-btn"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+            &#9776;
+        </button>
 
         <nav>
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a href="aboutpage.html">About</a>
             <a href="register.html">Register</a>
-            <a href="login.html">Login</a>
+            <a href="login.php">Login</a>
             <a href="contact.html">Contact</a>
-            <a href="FAQ.html">FAQ</a>
+            <a href="faq.html">FAQ</a>
         </nav>
     </header>
 
@@ -29,34 +39,104 @@
 
             <h2>Student Registration</h2>
 
-            <form action="dashboard.html">
+            <!-- Success message shown when all validations pass -->
+            <div id="successMessage" class="success-msg"></div>
 
+            <form action="process_registration.php" method="POST" id="registerForm" novalidate>
+
+                <!-- 1. Name -->
                 <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" required>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required minlength="2">
+                    <span class="error-msg" id="nameError"></span>
                 </div>
 
+                <!-- 2. Email -->
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required>
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="e.g. student@example.com" required>
+                    <span class="error-msg" id="emailError"></span>
                 </div>
 
+                <!-- 3. Mobile Number -->
                 <div class="form-group">
-                    <label for="enrolnum">Enrollment Number:</label>
-                    <input type="number" id="enrolnum" required>
+                    <label for="mobile">Mobile Number:</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" required maxlength="10" pattern="[6-9][0-9]{9}">
+                    <span class="error-msg" id="mobileError"></span>
                 </div>
 
+                <!-- 4. Date of Birth -->
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="date_of_birth" required>
+                    <span class="error-msg" id="dobError"></span>
+                </div>
+
+                <!-- 5. Password -->
                 <div class="form-group">
                     <label for="pass">Password:</label>
-                    <input type="password" id="pass" required>
+                    <input type="password" id="pass" name="password" placeholder="At least 8 chars (uppercase, lowercase, number, special char)" required minlength="8">
+                    <span class="error-msg" id="passwordError"></span>
                 </div>
 
+                <!-- 6. Confirm Password -->
                 <div class="form-group">
                     <label for="confirm-pass">Confirm Password:</label>
-                    <input type="password" id="confirm-pass" required>
+                    <input type="password" id="confirm-pass" name="confirm-pass" placeholder="Re-enter your password" required minlength="8">
+                    <span class="error-msg" id="confirmPassError"></span>
                 </div>
 
-                <input type="submit" value="Register" class="form-button">
+                <!-- 7. Course Dropdown -->
+                <div class="form-group">
+                    <label for="course">Course:</label>
+                    <select id="course" name="course" required>
+                        <option value="">-- Select Course --</option>
+                        <option value="Computer Engineering">Computer Engineering</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                    </select>
+                    <span class="error-msg" id="courseError"></span>
+                </div>
+
+                <!-- 8. Year of Study Dropdown -->
+                <div class="form-group">
+                    <label for="year">Year of Study:</label>
+                    <select id="year" name="year" required>
+                        <option value="">-- Select Year of Study --</option>
+                        <option value="First Year">First Year</option>
+                        <option value="Second Year">Second Year</option>
+                        <option value="Third Year">Third Year</option>
+                        <option value="Fourth Year">Fourth Year</option>
+                    </select>
+                    <span class="error-msg" id="yearError"></span>
+                </div>
+
+                <!-- 9. Gender Radio Buttons -->
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" value="Male" id="gender-male"> Male</label>
+                        <label><input type="radio" name="gender" value="Female" id="gender-female"> Female</label>
+                        <label><input type="radio" name="gender" value="Other" id="gender-other"> Other</label>
+                    </div>
+                    <span class="error-msg" id="genderError"></span>
+                </div>
+
+                <!-- 10. Terms and Conditions Checkbox -->
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="terms" name="terms" required>
+                            I agree to the Terms and Conditions
+                        </label>
+                    </div>
+                    <span class="error-msg" id="termsError"></span>
+                </div>
+
+                <!-- 11. Submit Button -->
+                <input type="submit" value="Register" class="form-button" id="submitBtn">
 
             </form>
 
@@ -67,6 +147,10 @@
     <footer>
         <p>&copy; 2026 Student Hub Portal. All Rights Reserved.</p>
     </footer>
+
+    <!-- register.js must come before components.js so its variables are set first -->
+    <script src="register.js"></script>
+    <script src="components.js"></script>
 
 </body>
 

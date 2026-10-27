@@ -11,15 +11,27 @@
 <body>
 
     <header>
-        <h1>Student Hub Portal</h1>
+        <div class="header-top">
+            <h1>Student Hub Portal</h1>
+            <button class="theme-btn" id="theme-btn" aria-label="Switch to dark mode" title="Switch to dark mode">🌙</button>
+        </div>
+
+        <button class="hamburger-btn"
+                id="hamburger-btn"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+            &#9776;
+        </button>
 
         <nav>
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a href="aboutpage.html">About</a>
             <a href="register.html">Register</a>
-            <a href="login.html">Login</a>
+            <a href="login.php">Login</a>
+            <a href="events.html">Events</a>
+            <a href="notice.html">Notices</a>
+            <a href="faq.html">FAQ</a>
             <a href="contact.html">Contact</a>
-            <a href="FAQ.html">FAQ</a>
         </nav>
     </header>
 
@@ -34,83 +46,30 @@
                 commonly asked questions about using the Student Hub Portal.
             </p>
 
-            <details>
-                <summary>How do I log in to the Student Hub Portal?</summary>
-                <p>
-                    Use your registered student ID and password on the Login page.
-                </p>
-            </details>
+            <!-- Search and Sort Controls -->
+            <div class="data-controls">
+                <input type="text" id="faqSearch" placeholder="Search by question or keyword..." aria-label="Search FAQs">
 
-            <details>
-                <summary>I forgot my password. What should I do?</summary>
-                <p>
-                    Click the Forgot Password link on the Login page and
-                    follow the instructions to reset your password.
-                </p>
-            </details>
+                <select id="faqSort" aria-label="Sort FAQs">
+                    <option value="default">Default Order</option>
+                    <option value="question-asc">Question: A to Z</option>
+                    <option value="question-desc">Question: Z to A</option>
+                </select>
+            </div>
 
-            <details>
-                <summary>What can I access from the dashboard?</summary>
-                <p>
-                    The dashboard provides access to Profile, Attendance,
-                    Timetable and other student resources.
-                </p>
-            </details>
+            <!-- Loading & Error Status Messages -->
+            <div id="faqLoading" class="loading-msg">Loading frequently asked questions...</div>
+            <div id="faqError" class="error-box" style="display: none;"></div>
+            <div id="faqNoResults" class="no-results" style="display: none;">No matching questions found.</div>
 
-            <details>
-                <summary>Why is my attendance not updated?</summary>
-                <p>
-                    Attendance is updated periodically by the institution.
-                    If it is missing or incorrect, contact your department
-                    or portal support.
-                </p>
-            </details>
-
-            <details>
-                <summary>Where can I find study materials?</summary>
-                <p>
-                    Study materials are available under the Study Materials
-                    section of your dashboard.
-                </p>
-            </details>
-
-            <details>
-                <summary>How do I view my semester results?</summary>
-                <p>
-                    Go to the Results section and select the desired semester
-                    to view your marks.
-                </p>
-            </details>
-
-            <details>
-                <summary>The portal is not loading. What should I do?</summary>
-                <p>
-                    Ensure you have an active internet connection. Refresh
-                    the page or try opening the portal in another browser.
-                </p>
-            </details>
-
-            <details>
-                <summary>Which browsers are supported?</summary>
-                <p>
-                    The portal works best on the latest versions of Google
-                    Chrome, Microsoft Edge, Mozilla Firefox and Safari.
-                </p>
-            </details>
-
-            <details>
-                <summary>How can I contact support?</summary>
-                <p>
-                    Visit the Contact page for support email, phone number
-                    and working hours.
-                </p>
-            </details>
+            <!-- Dynamic FAQs Container (populated via faq.js) -->
+            <div id="faqList"></div>
 
             <h3>Need More Help?</h3>
 
             <p>
                 Didn't find the answer you were looking for?
-                Visit our Contact page to get in touch with our support team.
+                Visit our <a href="contact.html">Contact page</a> to get in touch with our support team.
             </p>
 
         </div>
@@ -120,6 +79,9 @@
     <footer>
         <p>&copy; 2026 Student Hub Portal</p>
     </footer>
+
+    <script src="components.js"></script>
+    <script src="faq.js"></script>
 
 </body>
 

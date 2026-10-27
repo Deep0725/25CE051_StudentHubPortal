@@ -1,0 +1,38 @@
+[
+  {
+    "question": "How do I log in to the Student Hub Portal?",
+    "answer": "Use your registered student ID and password on the Login page."
+  },
+  {
+    "question": "I forgot my password. What should I do?",
+    "answer": "Click the Forgot Password link on the Login page and follow the instructions to reset your password."
+  },
+  {
+    "question": "What can I access from the dashboard?",
+    "answer": "The dashboard provides access to Profile, Attendance and other student resources."
+  },
+  {
+    "question": "Why is my attendance not updated?",
+    "answer": "Attendance is updated periodically by the institution. If it is missing or incorrect, contact your department or portal support."
+  },
+  {
+    "question": "Where can I find study materials?",
+    "answer": "Study materials are available under the Study Materials section of your dashboard."
+  },
+  {
+    "question": "How do I view my semester results?",
+    "answer": "Go to the Results section and select the desired semester to view your marks."
+  },
+  {
+    "question": "The portal is not loading. What should I do?",
+    "answer": "Ensure you have an active internet connection. Refresh the page or try opening the portal in another browser."
+  },
+  {
+    "question": "Which browsers are supported?",
+    "answer": "The portal works best on the latest versions of Google Chrome, Microsoft Edge, Mozilla Firefox and Safari."
+  },
+  {
+    "question": "How can I contact support?",
+    "answer": "Visit the Contact page for support email, phone number and working hours."
+  }
+]

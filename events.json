@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Web Development Workshop",
+    "date": "2026-09-28",
+    "category": "Workshop",
+    "location": "Computer Lab",
+    "description": "Hands-on training session covering modern responsive web design using HTML5, CSS Grid, and Flexbox."
+  },
+  {
+    "id": 2,
+    "name": "Code Challenge 2026",
+    "date": "2026-10-02",
+    "category": "Competition",
+    "location": "Programming Lab",
+    "description": "Annual department-level competitive programming and algorithm problem-solving contest."
+  },
+  {
+    "id": 3,
+    "name": "Technical Quiz Competition",
+    "date": "2026-10-05",
+    "category": "Academic",
+    "location": "Seminar Hall",
+    "description": "Interactive technical quiz testing core concepts of computer networks, data structures, and database systems."
+  },
+  {
+    "id": 4,
+    "name": "Annual Project Exhibition",
+    "date": "2026-10-10",
+    "category": "Academic",
+    "location": "Main Auditorium",
+    "description": "Showcase of innovative software and hardware projects created by final-year students."
+  },
+  {
+    "id": 5,
+    "name": "Student Hackathon 2026",
+    "date": "2026-10-15",
+    "category": "Competition",
+    "location": "Innovation Lab",
+    "description": "24-hour hackathon challenging students to build working prototypes for smart campus solutions."
+  },
+  {
+    "id": 6,
+    "name": "AI & Machine Learning Seminar",
+    "date": "2026-10-20",
+    "category": "Seminar",
+    "location": "Seminar Hall",
+    "description": "Guest lecture by industry experts exploring artificial intelligence applications and career paths."
+  },
+  {
+    "id": 7,
+    "name": "Cyber Security Workshop",
+    "date": "2026-10-25",
+    "category": "Workshop",
+    "location": "Computer Lab",
+    "description": "Practical session on web security, ethical hacking fundamentals, and preventing common cyber threats."
+  },
+  {
+    "id": 8,
+    "name": "Cultural Festival Inauguration",
+    "date": "2026-11-01",
+    "category": "Cultural",
+    "location": "Main Auditorium",
+    "description": "Grand opening ceremony of the annual inter-college cultural festival with music and performances."
+  },
+  {
+    "id": 9,
+    "name": "Cloud Computing Bootcamp",
+    "date": "2026-11-08",
+    "category": "Workshop",
+    "location": "Innovation Lab",
+    "description": "Intensive bootcamp introducing cloud architecture, containerization, and virtual servers."
+  },
+  {
+    "id": 10,
+    "name": "Robotics & IoT Showcase",
+    "date": "2026-11-15",
+    "category": "Technical",
+    "location": "Central Ground",
+    "description": "Live demonstration of student-built IoT devices, autonomous robots, and drone technology."
+  }
+]

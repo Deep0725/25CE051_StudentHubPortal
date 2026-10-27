@@ -1,0 +1,24 @@
+[
+    {
+        "name": "abc",
+        "email": "abc@gmail.com",
+        "mobile": "9123456789",
+        "password_hash": "$2y$10$03gdabzQW0InNJOuXsW\/IelKP8r4SXBKIclDF\/z4yi4OXFQqSCmfi",
+        "course": "Computer Engineering",
+        "year": "First Year",
+        "gender": "Male",
+        "terms_accepted": true,
+        "registered_at": "2026-10-23 04:57:06"
+    },
+    {
+        "name": "xyz",
+        "email": "xyz@gmail.com",
+        "mobile": "9123456789",
+        "password_hash": "$2y$10$nlzu6EYQ4rY6gslQ\/EbKrOC7O9RnZ1ob0tvxR6JoDh\/axc52H21cC",
+        "course": "Computer Engineering",
+        "year": "First Year",
+        "gender": "Male",
+        "terms_accepted": true,
+        "registered_at": "2026-10-23 05:39:45"
+    }
+]

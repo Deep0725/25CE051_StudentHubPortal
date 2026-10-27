@@ -1,7 +1,15 @@
+/* =============================================
+   STUDENT HUB PORTAL - style.css
+   Mobile-first responsive layout
+   Uses Flexbox and CSS Grid
+   ============================================= */
+
+/* --- Box sizing reset --- */
 * {
     box-sizing: border-box;
 }
 
+/* --- Body --- */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -9,43 +17,129 @@ body {
     color: #222;
 }
 
+/* =============================================
+   HEADER
+   ============================================= */
 header {
     background-color: #1e3a5f;
     color: white;
-    padding: 20px;
+    padding: 15px 20px;
 }
 
 header h1 {
     margin: 0;
     text-align: center;
+    font-size: 1.4rem;
 }
 
-nav {
+/* --- Logo + Title row (index.html) --- */
+.logo-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 25px;
-    margin-top: 15px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.logo-container img {
+    width: 60px;
+    height: 60px;
+    max-width: 100%;
+}
+
+/* =============================================
+   HEADER TOP ROW
+   Flexbox: title on left, theme button on right
+   ============================================= */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =============================================
+   HAMBURGER BUTTON
+   Shown only on mobile (hidden on 600px+)
+   ============================================= */
+.hamburger-btn {
+    display: block;            /* visible on mobile */
+    background: none;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.3rem;
+    padding: 4px 10px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* =============================================
+   THEME TOGGLE BUTTON
+   Always visible; sits in header-top row
+   ============================================= */
+.theme-btn {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    min-height: 38px;
+}
+
+.theme-btn:hover {
+    background-color: #315b88;
+}
+
+/* =============================================
+   NAVIGATION
+   Mobile: hidden until hamburger is clicked
+   Desktop: normal flex row (shown always)
+   ============================================= */
+nav {
+    display: none;             /* hidden on mobile by default */
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 10px;
+}
+
+/* nav is shown when .nav-open class is added by JS */
+nav.nav-open {
+    display: flex;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     padding: 8px 12px;
+    font-size: 0.9rem;
 }
 
 nav a:hover {
     background-color: #315b88;
 }
 
+/* =============================================
+   MAIN CONTENT AREA
+   ============================================= */
 main {
-    width: 80%;
-    margin: 30px auto;
+    width: 100%;
+    padding: 0 15px;
+    margin: 20px auto;
 }
 
+/* =============================================
+   SECTIONS
+   ============================================= */
 section {
     background-color: white;
-    padding: 25px;
+    padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
 }
@@ -58,6 +152,9 @@ h3 {
     color: #315b88;
 }
 
+/* =============================================
+   FOOTER
+   ============================================= */
 footer {
     background-color: #1e3a5f;
     color: white;
@@ -66,18 +163,22 @@ footer {
     margin-top: 30px;
 }
 
+/* =============================================
+   HOME PAGE
+   ============================================= */
 .home-content {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 400px;
+    min-height: 300px;
+    padding: 20px 0;
 }
 
 .home-box {
     background-color: white;
-    padding: 40px;
-    width: 70%;
+    padding: 25px 20px;
+    width: 100%;
     border: 1px solid #ddd;
 }
 
@@ -87,37 +188,93 @@ footer {
     color: white;
     text-decoration: none;
     padding: 12px 25px;
-    margin: 10px;
+    margin: 8px 5px;
     border: none;
     cursor: pointer;
+    font-size: 0.95rem;
 }
 
 .button:hover {
     background-color: #315b88;
 }
 
+/* =============================================
+   REGISTRATION FORM
+   ============================================= */
 .form-container {
-    width: 50%;
-    margin: 40px auto;
+    width: 100%;
+    margin: 20px auto;
     background-color: white;
-    padding: 30px;
+    padding: 25px 20px;
     border: 1px solid #ddd;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: bold;
 }
 
-.form-group input {
+.form-group input,
+.form-group select,
+.form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #aaa;
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+
+/* Radio buttons & Checkbox group styling */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: normal;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Error and success message styling */
+.error-msg {
+    display: block;
+    color: #d93025;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    min-height: 18px;
+}
+
+.success-msg {
+    display: none;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
 }
 
 .form-button {
@@ -127,18 +284,22 @@ footer {
     color: white;
     border: none;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .form-button:hover {
     background-color: #315b88;
 }
 
+/* =============================================
+   DASHBOARD
+   ============================================= */
 .dashboard-links {
     display: flex;
     justify-content: center;
-    gap: 15px;
     flex-wrap: wrap;
-    margin-bottom: 25px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .dashboard-links a {
@@ -152,82 +313,46 @@ footer {
     background-color: #315b88;
 }
 
+/* Dashboard info cards — CSS Grid */
 .info-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
 }
 
 .info-box {
-    flex: 1;
-    min-width: 250px;
     background-color: white;
     padding: 20px;
     border: 1px solid #ddd;
 }
 
-.faq-container {
-    width: 80%;
-    margin: 30px auto;
-    background-color: white;
-    padding: 30px;
+/* =============================================
+   ABOUT PAGE — CSS Grid features section
+   ============================================= */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.feature-box {
+    background-color: #f4f6f8;
     border: 1px solid #ddd;
+    padding: 15px 20px;
 }
 
-details {
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
+/* =============================================
+   EVENTS PAGE — scrollable table wrapper
+   ============================================= */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
 }
 
-summary {
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.logo-container img {
-    width: 80px;
-    height: 80px;
-}
-
-.contact-box {
-    background-color: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-}
-
-@media (max-width: 768px) {
-    main {
-        width: 90%;
-    }
-
-    .home-box {
-        width: 100%;
-    }
-
-    .form-container {
-        width: 90%;
-    }
-
-    nav {
-        gap: 10px;
-    }
-
-    .logo-container {
-        flex-direction: column;
-    }
-}
 table {
-    width: 95%;
-    margin: 30px auto;
+    width: 100%;
+    min-width: 500px;
     border-collapse: collapse;
     background-color: white;
     text-align: center;
@@ -261,4 +386,569 @@ tbody tr:hover {
 
 td {
     vertical-align: middle;
+}
+
+/* =============================================
+   FAQ PAGE
+   ============================================= */
+.faq-container {
+    width: 100%;
+    background-color: white;
+    padding: 25px 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+details {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* =============================================
+   CONTACT PAGE
+   ============================================= */
+.contact-box {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+/* =============================================
+   NOTIFICATION BANNER
+   Dismissible banner at the top of the page
+   ============================================= */
+.notification-banner {
+    background-color: #315b88;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.notification-banner p {
+    margin: 0;
+    flex: 1;
+}
+
+.banner-close-btn {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 2px 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.banner-close-btn:hover {
+    background-color: #1e3a5f;
+}
+
+/* =============================================
+   CONTENT SLIDER
+   Simple text-based slide component
+   ============================================= */
+.slider-section {
+    background-color: white;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+}
+
+/* Each slide — only active one is shown */
+.slide {
+    display: none;
+    padding: 30px 20px;
+    text-align: center;
+    min-height: 130px;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide h3 {
+    margin-top: 0;
+}
+
+/* Prev / Next buttons row */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background-color: #f4f6f8;
+    border-top: 1px solid #ddd;
+}
+
+.slider-btn {
+    background-color: #1e3a5f;
+    color: white;
+    border: none;
+    padding: 6px 16px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.slider-btn:hover {
+    background-color: #315b88;
+}
+
+/* Dot indicators below the slider */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #aaa;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.dot.active {
+    background-color: #1e3a5f;
+}
+
+/* =============================================
+   MODAL POPUP
+   ============================================= */
+
+/* Dark overlay behind the modal box */
+.modal-overlay {
+    display: none;              /* hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    /* center the modal box */
+    justify-content: center;
+    align-items: center;
+}
+
+/* When JS adds class 'open', show the overlay */
+.modal-overlay.open {
+    display: flex;
+}
+
+/* The white box that holds modal content */
+.modal-box {
+    background-color: white;
+    padding: 25px 20px;
+    width: 90%;
+    max-width: 480px;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.modal-box h2 {
+    margin-top: 0;
+}
+
+/* X close button in top-right corner */
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #1e3a5f;
+    line-height: 1;
+}
+
+.modal-close-btn:hover {
+    color: #315b88;
+}
+
+/* =============================================
+   DARK THEME
+   Applied when <body> has class "dark-theme"
+   ============================================= */
+body.dark-theme {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+body.dark-theme header {
+    background-color: #0f1f3d;
+}
+
+body.dark-theme footer {
+    background-color: #0f1f3d;
+}
+
+body.dark-theme section {
+    background-color: #16213e;
+    border-color: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-theme h2 {
+    color: #7eb8f7;
+}
+
+body.dark-theme h3 {
+    color: #5ea0e0;
+}
+
+body.dark-theme .home-box {
+    background-color: #16213e;
+    border-color: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-theme .info-box {
+    background-color: #16213e;
+    border-color: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-theme .feature-box {
+    background-color: #16213e;
+    border-color: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-theme .form-container {
+    background-color: #16213e;
+    border-color: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group select,
+body.dark-theme .form-group textarea {
+    background-color: #1a1a2e;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-theme .error-msg {
+    color: #ff6b6b;
+}
+
+body.dark-theme .success-msg {
+    background-color: #1b4332;
+    color: #d8f3dc;
+    border-color: #2d6a4f;
+}
+
+body.dark-theme .faq-container {
+    background-color: #16213e;
+    border-color: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-theme details {
+    border-color: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-theme .contact-box {
+    background-color: #16213e;
+    border-color: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-theme table {
+    background-color: #16213e;
+    color: #e0e0e0;
+}
+
+body.dark-theme td {
+    border-color: #2a2a4a;
+}
+
+body.dark-theme tbody tr:nth-child(even) {
+    background-color: #1a1a2e;
+}
+
+body.dark-theme tbody tr:hover {
+    background-color: #0f2040;
+}
+
+body.dark-theme .notification-banner {
+    background-color: #0f2040;
+}
+
+body.dark-theme .slider-section {
+    background-color: #16213e;
+    border-color: #2a2a4a;
+}
+
+body.dark-theme .slide {
+    color: #e0e0e0;
+}
+
+body.dark-theme .slider-controls {
+    background-color: #1a1a2e;
+    border-color: #2a2a4a;
+}
+
+body.dark-theme .modal-box {
+    background-color: #16213e;
+    border-color: #2a2a4a;
+    color: #e0e0e0;
+}
+
+body.dark-theme .modal-close-btn {
+    color: #7eb8f7;
+}
+
+/* =============================================
+   MEDIA QUERY — Tablet and up (600px+)
+   ============================================= */
+@media (min-width: 600px) {
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .logo-container {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .logo-container img {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Hide hamburger button on tablet+ */
+    .hamburger-btn {
+        display: none;
+    }
+
+    /* Always show nav as a flex row on tablet+ */
+    nav {
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    main {
+        width: 90%;
+        padding: 0;
+    }
+
+    .home-box {
+        width: 80%;
+        padding: 35px 30px;
+    }
+
+    .form-container {
+        width: 80%;
+    }
+
+    .info-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* =============================================
+   MEDIA QUERY — Desktop (900px+)
+   ============================================= */
+@media (min-width: 900px) {
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .logo-container img {
+        width: 80px;
+        height: 80px;
+    }
+
+    nav {
+        gap: 25px;
+    }
+
+    main {
+        width: 80%;
+    }
+
+    .home-box {
+        width: 60%;
+        padding: 40px;
+    }
+
+    .form-container {
+        width: 50%;
+    }
+
+    .info-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* =============================================
+   DATA CONTROLS (SEARCH, FILTER, SORT)
+   ============================================= */
+.data-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #f4f6f8;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+.data-controls input,
+.data-controls select {
+    padding: 9px 12px;
+    border: 1px solid #aaa;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background-color: white;
+}
+
+.data-controls input[type="text"] {
+    flex: 1 1 200px;
+}
+
+.data-controls select {
+    flex: 0 1 180px;
+}
+
+/* Pagination container */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    background-color: #1e3a5f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.page-btn:hover:not(:disabled) {
+    background-color: #315b88;
+}
+
+.page-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
+}
+
+.page-info {
+    font-weight: bold;
+    color: #1e3a5f;
+}
+
+/* Status messages */
+.loading-msg {
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    color: #1e3a5f;
+}
+
+.no-results {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+.error-box {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Dark mode for data controls and pagination */
+body.dark-theme .data-controls {
+    background-color: #16213e;
+    border-color: #2a2a4a;
+}
+
+body.dark-theme .data-controls input,
+body.dark-theme .data-controls select {
+    background-color: #1a1a2e;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-theme .page-btn {
+    background-color: #315b88;
+}
+
+body.dark-theme .page-btn:hover:not(:disabled) {
+    background-color: #4a7bb0;
+}
+
+body.dark-theme .page-btn:disabled {
+    background-color: #2a2a4a;
+    color: #666;
+}
+
+body.dark-theme .page-info {
+    color: #7eb8f7;
+}
+
+body.dark-theme .loading-msg {
+    color: #7eb8f7;
+}
+
+body.dark-theme .no-results {
+    color: #aaa;
+}
+
+body.dark-theme .error-box {
+    background-color: #44181c;
+    color: #f8d7da;
+    border-color: #721c24;
 }

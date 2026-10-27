@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Mid-Semester Examination Schedule Released",
+    "date": "2026-09-24",
+    "category": "Examination",
+    "description": "The timetable for the upcoming mid-semester examinations has been published on the departmental notice board."
+  },
+  {
+    "id": 2,
+    "title": "Assignment Submission Deadline Extended",
+    "date": "2026-09-22",
+    "category": "Academic",
+    "description": "Deadline for submitting Assignment 2 of Web Development Frameworks has been extended to 30 September 2026."
+  },
+  {
+    "id": 3,
+    "title": "Student Developer Team Registration Open",
+    "date": "2026-09-20",
+    "category": "Student Activities",
+    "description": "Applications are open for students interested in joining the student club technical core team."
+  },
+  {
+    "id": 4,
+    "title": "Central Library Timing Updated",
+    "date": "2026-09-18",
+    "category": "Library",
+    "description": "The central library will remain open until 9:00 PM on weekdays to assist students during examination preparation."
+  },
+  {
+    "id": 5,
+    "title": "Internal Practical Examination Notice",
+    "date": "2026-09-15",
+    "category": "Examination",
+    "description": "Internal lab practical assessments for semester 3 courses will commence from the second week of October."
+  },
+  {
+    "id": 6,
+    "title": "Scholarship Application Portal Live",
+    "date": "2026-09-10",
+    "category": "Administrative",
+    "description": "Eligible merit and means-based students must submit their state scholarship verification forms before 15 October."
+  },
+  {
+    "id": 7,
+    "title": "Campus Placement Drive Announcement",
+    "date": "2026-09-05",
+    "category": "Academic",
+    "description": "Pre-placement talk and registration for final year computer engineering students will be conducted on Friday."
+  },
+  {
+    "id": 8,
+    "title": "Sports Week Registration Announcement",
+    "date": "2026-09-01",
+    "category": "Student Activities",
+    "description": "Registrations for inter-branch cricket, football, volleyball, and table tennis tournaments are now open."
+  },
+  {
+    "id": 9,
+    "title": "Fee Payment Reminder for Term 2",
+    "date": "2026-08-25",
+    "category": "Administrative",
+    "description": "Students are reminded to clear term fee dues through the online portal to avoid late submission penalties."
+  },
+  {
+    "id": 10,
+    "title": "Digital Book Bank Distribution",
+    "date": "2026-08-20",
+    "category": "Library",
+    "description": "Reference textbooks and digital library access cards can be collected from the circulation counter."
+  }
+]

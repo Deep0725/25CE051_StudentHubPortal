@@ -14,7 +14,6 @@ The main objectives of Student Hub Portal are:
 - Provide easy access to academic information
 - Allow students to view their profile
 - Allow students to check attendance
-- Provide access to the timetable
 - Provide a password recovery system
 - Provide frequently asked questions
 - Provide technical support information
@@ -33,11 +32,15 @@ The About page explains the purpose of the Student Hub Portal and its major feat
 
 New students can register by providing:
 
-- Name
-- Email
-- Enrollment Number
+- Full Name
+- Email Address
+- Mobile Number
 - Password
 - Confirm Password
+- Course
+- Year of Study
+- Gender
+- Terms and Conditions Acceptance
 
 ### Student Login
 
@@ -59,7 +62,6 @@ The dashboard provides access to:
 
 - Profile
 - Attendance
-- Timetable
 - Logout
 
 ### Profile
@@ -69,13 +71,17 @@ The Profile page displays:
 - Personal Information
 - Academic Information
 
+### Events
+
+The Events page displays upcoming campus activities and technical sessions loaded dynamically from `events.json` with category filtering, date sorting, keyword search, and pagination.
+
+### Notices
+
+The Notices page displays college notices and announcements loaded dynamically from `notices.json` with category filtering, date/title sorting, search, and pagination.
+
 ### Attendance
 
 Students can view their attendance for different subjects.
-
-### Timetable
-
-Students can view their weekly class timetable.
 
 ### Contact
 
@@ -88,7 +94,7 @@ The Contact page provides Student Hub support information such as:
 
 ### FAQ
 
-The FAQ page provides answers to common questions related to:
+The FAQ page provides answers to common questions loaded dynamically from `faq.json` with real-time keyword search and alphabetical sorting:
 
 - Login
 - Password recovery
@@ -113,8 +119,9 @@ Student Hub Portal
 │   └── Dashboard
 │       ├── Profile
 │       ├── Attendance
-│       ├── Timetable
 │       └── Logout
 │
+├── Events
+├── Notices
 ├── Contact
 └── FAQ

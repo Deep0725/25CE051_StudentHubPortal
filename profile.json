@@ -1,0 +1,15 @@
+{
+  "personalInformation": {
+    "fullName": "ABC XYZ",
+    "dateOfBirth": "15 January 2006",
+    "gender": "Male",
+    "email": "abcxyz@example.com",
+    "phone": "+91 12345 67890"
+  },
+  "academicInformation": {
+    "enrollmentNo": "23CE001",
+    "department": "Computer Engineering",
+    "semester": 3,
+    "academicYear": "2026-27"
+  }
+}
